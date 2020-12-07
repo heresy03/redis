@@ -62,4 +62,39 @@ public class LolHeroController {
         return lolHeroService.findById(id);
     }
 
+    @PostMapping("insert")
+    public LolHero insertHero(){
+        LolHero lolHero = new LolHero();
+        lolHero.setNickname("kk");
+        lolHero.setHandHard(6);
+        lolHero.setAttackPower(7);
+        lolHero.setUkName("uk");
+        lolHero.setTinyImg("img");
+        lolHeroService.insertHero(lolHero);
+        return lolHero;
+    }
+
+    @PutMapping("update")
+    public LolHero updateHero(){
+        LolHero lolHero = new LolHero();
+        lolHero.setId(179);
+        lolHero.setNickname("kk");
+        lolHero.setHandHard(6);
+        lolHero.setAttackPower(7);
+        lolHero.setUkName("uk");
+        lolHero.setTinyImg("img");
+        lolHeroService.updateHero(lolHero);
+        return lolHero;
+    }
+    @DeleteMapping("del/{id}")
+    public String delete(@PathVariable("id") Integer id){
+        lolHeroService.deleteById(id);
+        return "1";
+    }
+    @DeleteMapping("delall")
+    public String clearCache(){
+        lolHeroService.deleteAll();
+        return "1";
+    }
+
 }

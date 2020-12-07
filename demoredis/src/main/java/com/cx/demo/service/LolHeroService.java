@@ -12,4 +12,9 @@ public interface LolHeroService {
     List<LolHero> selectAll();
     PageInfo<LolHero> selectAllPage();
     LolHero findById(Integer id);
+    LolHero insertHero(LolHero lolHero);
+    LolHero updateHero(LolHero lolHero);
+    void deleteById(Integer id);
+    void deleteAll();
+
 }

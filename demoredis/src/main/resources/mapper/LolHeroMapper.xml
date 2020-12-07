@@ -8,4 +8,21 @@
     <select id="findById" resultType="lolHero">
         select * from lolhero where id=#{id}
     </select>
+
+
+    <insert id="insertHero" keyProperty="id" useGeneratedKeys="true" parameterType="lolHero">
+        insert into lolhero values (null, #{ukName},#{nickname},#{tinyImg},#{attackPower}, #{handHard})
+    </insert>
+
+
+    <update id="updateHero" parameterType="lolHero">
+        update lolhero set uk_name=#{ukName},nickname=#{nickname},tiny_img=#{tinyImg},attack_power=#{attackPower},
+        hand_hard=#{handHard} where id=#{id}
+    </update>
+
+    <delete id="deleteById">
+        delete from lolhero where id=#{id}
+    </delete>
+
+
 </mapper>

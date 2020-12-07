@@ -45,27 +45,27 @@ public class LolHeroServiceImpl implements LolHeroService {
     @CachePut(key="#p0.id") // p0表示第一个参数
     // 必须要有返回值，否则没有数据放到缓存中
     public LolHero insertHero(LolHero lolHero){
-
-        return lolHero; // userMapper.find(u.getId())
+        lolHeroMapper.insertHero(lolHero);
+        return lolHero; //
     }
 
     @CachePut(key="#p0.id") // p0表示第一个参数
     // 必须要有返回值，否则没有数据放到缓存中
     public LolHero updateHero(LolHero lolHero){
-
+        lolHeroMapper.updateHero(lolHero);
         return lolHero; // userMapper.find(u.getId())
     }
-//    @Cacheable(key="#p0")// 会先查询缓存，如果缓存中存在，则不执行方法
-    @Cacheable(keyGenerator = "keyGenerator")
+    @Cacheable(key="#p0")// 会先查询缓存，如果缓存中存在，则不执行方法
+//    @Cacheable(keyGenerator = "keyGenerator")
     public LolHero findById(Integer id){
-        System.out.println("111");
+        System.out.println("findById----------");
         return lolHeroMapper.findById(id);
     }
 
     // keyGenerator = "keyGenerator"
     @CacheEvict(key="#p0")// 删除缓存中的数据
-    public LolHero deleteById(Integer id){
-        return null;
+    public void deleteById(Integer id){
+        lolHeroMapper.deleteById(id);
     }
     @CacheEvict(allEntries = true) // 删除缓存名称为herocache，类上
     // 所有缓存，清空失败，缓存不会被清除

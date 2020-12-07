@@ -10,4 +10,8 @@ public interface LolHeroMapper {
 
     List<LolHero> selectAll();
     LolHero findById(Integer id);
+    int insertHero(LolHero lolHero);
+    int updateHero(LolHero lolHero);
+    int deleteById(Integer id);
+    void deleteAll();
 }
