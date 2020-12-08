@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
  */
 public class SecondKill {
     public static void main(String[] args) {
-        String phone = "huawei";
+        String phone = "huawei";// key
         Jedis jedis = new Jedis("127.0.0.1", 6379);
         jedis.del(phone);
         jedis.set(phone, "100");

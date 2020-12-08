@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Scope;
 
 @Getter
 @Setter
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class ResponseResult {
     private Integer code;
     private String message;

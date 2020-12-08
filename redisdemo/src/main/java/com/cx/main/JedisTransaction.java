@@ -18,7 +18,7 @@ public class JedisTransaction {
         transaction.set("name","tzhang");
         transaction.set("age","20");
         transaction.set("address","苏州");
-        // 事务执行失败，字符串不能加5
+        // 事务执行失败，字符串不能加5， 语法上没有问题就不会执行报错
         transaction.incrBy("name",5);
         transaction.incrBy("age",5);
         // 执行事务

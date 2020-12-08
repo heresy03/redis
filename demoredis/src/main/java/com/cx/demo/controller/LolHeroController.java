@@ -29,7 +29,6 @@ public class LolHeroController {
 
     @Autowired
     ResultUtil resultUtil;
-
     @Transactional
     @GetMapping("heroall")
     public ResponseResult selectAll(){
@@ -40,16 +39,12 @@ public class LolHeroController {
         List<LolHero> lolHeroList = lolHeroService.selectAll();
         return resultUtil.getResponseResult(1, lolHeroList);
     }
-
     @Transactional
     @GetMapping("heroallpage")
     public ResponseResult selectAllPage(){
-
         logger.error("error--------------------------");
-
         return resultUtil.getResponseResult(1, lolHeroService.selectAllPage());
     }
-
     @GetMapping("hero")
     public ResponseResult select(){
 //        System.out.println(responseResult);
@@ -63,13 +58,13 @@ public class LolHeroController {
     }
 
     @PostMapping("insert")
-    public LolHero insertHero(){
-        LolHero lolHero = new LolHero();
-        lolHero.setNickname("kk");
-        lolHero.setHandHard(6);
-        lolHero.setAttackPower(7);
-        lolHero.setUkName("uk");
-        lolHero.setTinyImg("img");
+    public LolHero insertHero(LolHero lolHero){
+//        LolHero lolHero = new LolHero();
+//        lolHero.setNickname("kk");
+//        lolHero.setHandHard(6);
+//        lolHero.setAttackPower(7);
+//        lolHero.setUkName("uk");
+//        lolHero.setTinyImg("img");
         lolHeroService.insertHero(lolHero);
         return lolHero;
     }
@@ -96,5 +91,4 @@ public class LolHeroController {
         lolHeroService.deleteAll();
         return "1";
     }
-
 }

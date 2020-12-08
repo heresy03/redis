@@ -41,7 +41,11 @@ redis集群
 集群模式---多台主机同时运行redis
     master  主人   slave   奴隶 仆人
  master/slave  主从结构
+
  高可用
+
+ 分布式锁
+
 
 
 
