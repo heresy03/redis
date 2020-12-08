@@ -70,14 +70,14 @@ public class LolHeroController {
     }
 
     @PutMapping("update")
-    public LolHero updateHero(){
-        LolHero lolHero = new LolHero();
-        lolHero.setId(179);
-        lolHero.setNickname("kk");
-        lolHero.setHandHard(6);
-        lolHero.setAttackPower(7);
-        lolHero.setUkName("uk");
-        lolHero.setTinyImg("img");
+    public LolHero updateHero(LolHero lolHero){
+//        LolHero lolHero = new LolHero();
+//        lolHero.setId(179);
+//        lolHero.setNickname("kk");
+//        lolHero.setHandHard(6);
+//        lolHero.setAttackPower(7);
+//        lolHero.setUkName("uk");
+//        lolHero.setTinyImg("img");
         lolHeroService.updateHero(lolHero);
         return lolHero;
     }

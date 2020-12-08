@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * 缓存与数据库同步
+ *
+ */
 @Service
 // 本类内的方法指定使用缓存时，默认的名称
 @CacheConfig(cacheNames = "herocache")
@@ -57,6 +61,7 @@ public class LolHeroServiceImpl implements LolHeroService {
     }
     @Cacheable(key="#p0")// 会先查询缓存，如果缓存中存在，则不执行方法
 //    @Cacheable(keyGenerator = "keyGenerator")
+//    @CachePut(key="#p0")
     public LolHero findById(Integer id){
         System.out.println("findById----------");
         return lolHeroMapper.findById(id);
@@ -67,6 +72,8 @@ public class LolHeroServiceImpl implements LolHeroService {
     public void deleteById(Integer id){
         lolHeroMapper.deleteById(id);
     }
+
+
     @CacheEvict(allEntries = true) // 删除缓存名称为herocache，类上
     // 所有缓存，清空失败，缓存不会被清除
     public void deleteAll(){
