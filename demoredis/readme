@@ -1,0 +1,49 @@
+redis
+并发量可达到瞬间并发量10W左右
+做缓存--数据存到内存--从内存读取数据--快----缺点：吃内存，宕机/关机后内存数据丢失
+防止数据丢失---持久化（将数据写入磁盘）
+AOF----AOF压缩操作---redis内存数据转换成写指令--生成一个新的aof文件替换旧的AOF文件
+RDB----redis进程--fork函数创建一个子进程完成rdb快照，父进程正常执行客户端发来的命令
+   900  1
+   300  60
+   60   1000
+
+Mysql不行？mysql查询数据从磁盘读---伴随者磁盘IO---耗时操作---并发量500-1000
+高并发----高吞吐
+
+数据类型
+String Hash  List  Set SortedSet
+以键值对存储数据--key---String
+value：String Hash  List  Set SortedSet
+
+EX seconds  PX millionseconds   NX/XX
+start  stop  offset   count   min max
+(  [  + -
+常把课件内容看一看
+String  Hash
+key  value ----string
+    message-》hello， how are you！
+key  属性 值 ----对象
+    student-》id  10000
+              name tzhang
+              age  18
+
+redis 默认端口号  6379
+
+应用场景
+易变化、关键字等存储
+热点高频信息（热点数据）---
+存储用户信息，如大型电商系统的购物车、会话
+对数据一致性要求不是很高的业务场景
+
+redis集群
+单机模式---只有一台机器运行redis
+集群模式---多台主机同时运行redis
+    master  主人   slave   奴隶 仆人
+ master/slave  主从结构
+ 高可用
+
+
+
+
+
