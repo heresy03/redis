@@ -22,7 +22,7 @@ public class NewTask01 {
 
             String message = "Fifth message......................................";
 
-            channel.basicPublish("", "",
+            channel.basicPublish("", QUEUE_NAME,
                     MessageProperties.PERSISTENT_TEXT_PLAIN,
                     message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
