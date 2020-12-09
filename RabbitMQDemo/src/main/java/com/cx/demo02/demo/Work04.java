@@ -31,12 +31,14 @@ public class Work04 {
                 e.printStackTrace();
             } finally {
                 System.out.println(" [x] Done");
-                // 新增确认     channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
+                // 新增确认
+                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
             }
         };
-
-        boolean autoAck = true;// 修改
+        channel.basicQos(0, 1, false);
+        boolean autoAck = false;// 修改
         channel.basicConsume(QUEUE_NAME, autoAck, deliverCallback, consumerTag -> { });
+
 
     }
 

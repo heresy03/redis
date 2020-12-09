@@ -18,7 +18,7 @@ public class Work03 {
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
         // 一次只接受一条未确认的消息
-        channel.basicQos(1);
+//        channel.basicQos(1);
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");
@@ -30,7 +30,8 @@ public class Work03 {
                 e.printStackTrace();
             } finally {
                 System.out.println(" [x] Done");
-                // 新增确认     channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
+                // 新增确认 --手动确认
+//                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
             }
         };
 

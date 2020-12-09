@@ -21,6 +21,7 @@ public class NewTask01 {
             channel.queueDeclare(QUEUE_NAME, durable, false, false, null);
 
             String message = "Fifth message......................................";
+//            String message = "Fifth message.........";
 
             channel.basicPublish("", QUEUE_NAME,
                     MessageProperties.PERSISTENT_TEXT_PLAIN,

@@ -24,9 +24,9 @@ public class NewTask {
             // 发布一条消息到队列中
 //            String message = String.join(" ", argv);
 // 修改的代码
-            String message = "message. work queues.........................";
+//            String message = "message. work queues.........................";
 //            String message = "message. work queues..........11";// 11
-//            String message = "message. work queues.......8";//
+            String message = "message. work queues.......8";//
 //            String message = "message. work queues...4";
 
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
