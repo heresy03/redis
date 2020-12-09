@@ -59,9 +59,8 @@ public class LolHeroServiceImpl implements LolHeroService {
         lolHeroMapper.updateHero(lolHero);
         return lolHero; // userMapper.find(u.getId())
     }
-    @Cacheable(key="#p0")// 会先查询缓存，如果缓存中存在，则不执行方法
-//    @Cacheable(keyGenerator = "keyGenerator")
-//    @CachePut(key="#p0")
+//    @Cacheable(key="#p0")// 会先查询缓存，如果缓存中存在，则不执行方法
+    @Cacheable(keyGenerator = "keyGenerator")
     public LolHero findById(Integer id){
         System.out.println("findById----------");
         return lolHeroMapper.findById(id);
